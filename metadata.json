@@ -1,0 +1,6 @@
+{
+  "name": "Family Accounting Management System",
+  "description": "Offline-first family accounting management system supporting dynamic rules, multi-language (Bangla/English), Bangla Hijri calendar, offline sync, and financial reports.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

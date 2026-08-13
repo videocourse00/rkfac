@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "users": {
+      "title": "User",
+      "description": "User profiles authenticated via mobile number",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "fullName": { "type": "string" },
+        "familyId": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "phoneNumber", "familyId"]
+    },
+    "transactions": {
+      "title": "Transaction",
+      "description": "Family financial transaction records",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "family_id": { "type": "string" },
+        "transaction_date": { "type": "string" },
+        "voucher_no": { "type": "string" },
+        "type": { "type": "string" },
+        "description": { "type": "string" },
+        "total_amount_cents": { "type": "integer" },
+        "category_id": { "type": "string" }
+      },
+      "required": ["id", "family_id", "total_amount_cents", "type"]
+    }
+  }
+}
