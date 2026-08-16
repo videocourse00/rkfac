@@ -61,13 +61,12 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
     try {
       if (mode === 'SIGNUP') {
-        if (!isOnline) {
-          throw new Error('Internet connection is required to create a new account.');
-        }
         const session = await signUpWithMobile(phone, password, fullName);
         setSuccessMsg('Account created successfully!');
         onAuthSuccess(session);
-        await syncEngine.triggerSync(session.familyId);
+        if (isOnline) {
+          await syncEngine.triggerSync(session.familyId);
+        }
       } else if (mode === 'LOGIN') {
         const session = await loginWithMobile(phone, password);
         setSuccessMsg('Logged in successfully!');
@@ -76,17 +75,11 @@ export const AuthModal: React.FC<AuthModalProps> = ({
           await syncEngine.triggerSync(session.familyId);
         }
       } else if (mode === 'CHANGE_PASSWORD') {
-        if (!isOnline) {
-          throw new Error('Internet connection is required to change your password.');
-        }
         await changeUserPassword(phone, currentPass, newPassword);
         setSuccessMsg('Password updated successfully!');
         setCurrentPass('');
         setNewPassword('');
       } else if (mode === 'CHANGE_MOBILE') {
-        if (!isOnline) {
-          throw new Error('Internet connection is required to change your mobile number.');
-        }
         if (!currentSession) {
           throw new Error('No active user session found.');
         }
@@ -138,14 +131,6 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             </button>
           )}
         </div>
-
-        {/* Offline Warning Banner if required */}
-        {!isOnline && (mode === 'SIGNUP' || mode === 'CHANGE_PASSWORD' || mode === 'CHANGE_MOBILE') && (
-          <div className="px-6 py-2.5 bg-amber-50 dark:bg-amber-950/60 border-b border-amber-200 dark:border-amber-800 text-amber-800 dark:text-amber-300 text-xs flex items-center gap-2 font-medium">
-            <WifiOff className="w-4 h-4 text-amber-600 flex-shrink-0" />
-            <span>Internet connection required for this action.</span>
-          </div>
-        )}
 
         {/* Body Form */}
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
@@ -300,13 +285,9 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               </div>
             </>
           )}
-
           <button
             type="submit"
-            disabled={
-              isLoading ||
-              (!isOnline && (mode === 'SIGNUP' || mode === 'CHANGE_PASSWORD' || mode === 'CHANGE_MOBILE'))
-            }
+            disabled={isLoading}
             className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-300 text-white font-bold text-xs rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 mt-4"
           >
             {isLoading ? (

@@ -123,17 +123,12 @@ export const Header: React.FC<HeaderProps> = ({
         
         {/* App Logo & Title */}
         <div className="flex items-center gap-3">
-          {settings.custom_logo_uri ? (
-            <img
-              src={settings.custom_logo_uri}
-              alt="App Logo"
-              className="w-10 h-10 rounded-2xl object-cover shadow-md shrink-0"
-            />
-          ) : (
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-indigo-600 to-indigo-800 text-white flex items-center justify-center font-bold shadow-md shadow-indigo-600/20 shrink-0">
-              <Layers className="w-5 h-5 text-indigo-100" />
-            </div>
-          )}
+          <img
+            src={settings.custom_logo_uri || '/logo.png'}
+            alt="RK Educare Logo"
+            referrerPolicy="no-referrer"
+            className="w-10 h-10 rounded-2xl object-cover shadow-md shadow-indigo-600/20 shrink-0 border border-slate-200 dark:border-slate-700 bg-white"
+          />
 
           <div>
             <div className="flex items-center gap-2">

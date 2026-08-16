@@ -113,9 +113,12 @@ export const SlideMenu: React.FC<SlideMenuProps> = ({
           {/* Header */}
           <div className="p-5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-indigo-800 text-white flex items-center justify-center font-bold shadow-md shadow-indigo-600/20">
-                <Sparkles className="w-5 h-5 text-indigo-100" />
-              </div>
+              <img
+                src="/logo.png"
+                alt="RK Educare"
+                referrerPolicy="no-referrer"
+                className="w-9 h-9 rounded-xl object-cover shadow-md shadow-indigo-600/20 shrink-0 border border-slate-200 dark:border-slate-700 bg-white"
+              />
               <div>
                 <h3 className="font-bold text-sm text-slate-900 dark:text-slate-100 leading-tight">
                   {familyName}

@@ -84,15 +84,18 @@ export const AuthLandingView: React.FC<AuthLandingViewProps> = ({
       {/* Top Brand Bar */}
       <div className="max-w-6xl mx-auto w-full flex justify-between items-center py-4 border-b border-slate-800/80">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold shadow-lg shadow-indigo-600/30">
-            <Layers className="w-5 h-5" />
-          </div>
+          <img
+            src="/logo.png"
+            alt="RK Educare"
+            referrerPolicy="no-referrer"
+            className="w-11 h-11 rounded-2xl object-cover shadow-lg shadow-indigo-600/30 shrink-0 border border-slate-700 bg-white"
+          />
           <div>
             <h1 className="font-extrabold text-base md:text-lg tracking-tight uppercase text-white">
-              Family Accounting
+              RK Educare BD
             </h1>
             <span className="text-[10px] font-mono text-indigo-400 font-bold uppercase tracking-wider">
-              Offline-First Double-Entry Ledger
+              Family Accounting & Ledger System
             </span>
           </div>
         </div>

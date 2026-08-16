@@ -1,6 +1,6 @@
 {
   "name": "Family Accounting Management System",
-  "description": "Offline-first family accounting management system supporting dynamic rules, multi-language (Bangla/English), Bangla Hijri calendar, offline sync, and financial reports.",
+  "description": "RK Educare BD - Offline-first family accounting and double-entry ledger management system with multi-calendar, offline sync, dynamic rules, and financial reports.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
